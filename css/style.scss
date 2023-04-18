@@ -1,0 +1,142 @@
+:root {
+
+    --soft_blue: hsl(215, 51%, 70%);
+    --cyan: hsl(178, 100%, 50%);
+    --cyan-overlay: hsla(178, 100%, 50%, 50%);
+    --dark_blue_main_BG: hsl(217, 54%, 11%);
+    --dark_blue_card_BG: hsl(216, 50%, 16%);
+    --dark_blue_line: hsl(215, 32%, 27%);
+    --white: hsl(0, 0%, 100%);
+
+    --inactive-box-shadow: 0px 1px 20px 0px black;
+    --active-box-shadow: 0px 1px 40px 0px black;
+}
+
+body {
+    width: 1440px;
+    height: 900px;
+    background-color: var(--dark_blue_main_BG);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+h1,
+p,
+span,
+img,
+header,
+main,
+footer {
+    margin: 0;
+    padding: 0;
+}
+
+.card {
+    width: 350px;
+    height: 600px;
+    padding: 25px;
+    border-radius: 10px;
+    background-color: var(--dark_blue_card_BG);
+    box-shadow: var(--inactive-box-shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    transition: transform .5s linear, box-shadow .5s linear;
+
+    &--active {
+        &:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--active-box-shadow);
+        }
+    }
+
+    &__image-container {
+        position: relative;
+        width: 100%;
+        height: 300px;
+        border-radius: 5px;
+        align-self: center;
+        overflow: hidden;
+
+        .img-etherium {
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .img-overlay {
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--cyan-overlay);
+
+            &--active {
+                &:hover {
+                    opacity: 100;
+                }
+            }
+
+            img {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+    }
+
+    &__main {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    &__text-standard {
+        color: var(--soft_blue);
+    }
+
+    &__offer {
+        display: flex;
+        justify-content: space-between;
+
+        >span {
+            display: flex;
+            align-items: center;
+            gap: 5px
+        }
+
+        .span-etherium {
+            color: var(--cyan);
+        }
+    }
+
+    footer {
+        padding-top: 15px;
+        border-top: 1px solid var(--dark_blue_line);
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    footer>img {
+        width: 35px;
+    }
+
+    &__text-white {
+        color: var(--white);
+
+        &--active {
+            &:hover {
+                color: var(--cyan);
+            }
+        }
+    }
+
+
+}
